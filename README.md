@@ -1,3 +1,7 @@
-# Hibernate Activity Planning app
+# Hibernate Activity Planning App
 
-# See SETUP.MD for setup steps
+# Setup:
+
+1) Update database credentials in hibernate.cgf.xml to point to your local database
+2) Build the Maven project
+3) Run the app!
