@@ -3,7 +3,9 @@ import java.awt.event.*;
 import java.util.Calendar;
 import javax.swing.*;
 
-/** Manages UI for date selection.
+/**
+ * Manages UI for date selection.
+ *
  * @version 1.0
  * @since 1.0
  */
@@ -37,7 +39,7 @@ class DatePicker {
     DatePicker(JFrame parent) {
         d = new JDialog();
         d.setModal(true);
-        String[] header = { "Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat" };
+        String[] header = {"Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"};
         JPanel p1 = new JPanel(new GridLayout(7, 7));
         p1.setPreferredSize(new Dimension(430, 120));
 
@@ -106,6 +108,7 @@ class DatePicker {
 
     /**
      * Return the currently selected date.
+     *
      * @return currently selected date.
      */
     Calendar getPickedDate() {

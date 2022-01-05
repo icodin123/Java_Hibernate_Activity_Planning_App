@@ -6,7 +6,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-/** Manages Hibernate Session.
+/**
+ * Manages Hibernate Session.
+ *
  * @version 1.0
  * @since 1.0
  */
@@ -17,10 +19,12 @@ public class HibernateSessionFactoryUtil {
      */
     private static SessionFactory sessionFactory;
 
-    private HibernateSessionFactoryUtil() {}
+    private HibernateSessionFactoryUtil() {
+    }
 
     /**
      * Return current session factory.
+     *
      * @return current session factory.
      */
     public static SessionFactory getSessionFactory() {

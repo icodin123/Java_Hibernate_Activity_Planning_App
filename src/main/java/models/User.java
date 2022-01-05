@@ -1,16 +1,19 @@
 package models;
 
 import org.mindrot.jbcrypt.BCrypt;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/** User class represents user account.
+/**
+ * User class represents user account.
+ *
  * @version 1.0
  * @since 1.0
  */
 @Entity
-@Table (name = "users", schema="public")
+@Table(name = "users", schema = "public")
 public class User {
 
     @Id
@@ -33,17 +36,19 @@ public class User {
 
     /**
      * Return user's password.
+     *
      * @return user's password.
      */
-    public String getPassword(){
+    public String getPassword() {
         return this.password;
     }
 
     /**
      * Set user's password.
+     *
      * @param password new password for user.
      */
-    void setPassword(String password){
+    void setPassword(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
@@ -58,6 +63,7 @@ public class User {
 
     /**
      * Add task to user.
+     *
      * @param task to be added.
      */
     public void addTask(Task task) {
@@ -67,6 +73,7 @@ public class User {
 
     /**
      * Remove task from user.
+     *
      * @param task to be removed.
      */
     public void removeTask(Task task) {
@@ -75,6 +82,7 @@ public class User {
 
     /**
      * Return user's name.
+     *
      * @return user's name.
      */
     public String getName() {
@@ -83,6 +91,7 @@ public class User {
 
     /**
      * Return list of user's tasks.
+     *
      * @return list of user's tasks.
      */
     public List<Task> getTasks() {
@@ -91,6 +100,7 @@ public class User {
 
     /**
      * Update user's tasks.
+     *
      * @param tasks new list of tasks for user.
      */
     public void setTasks(List<Task> tasks) {

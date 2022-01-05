@@ -5,7 +5,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
-/** Task Data Access Object.
+/**
+ * Task Data Access Object.
+ *
  * @version 1.0
  * @since 1.0
  */
@@ -19,5 +21,4 @@ public class TaskDaoImpl implements TaskDao {
         tx1.commit();
         session.close();
     }
-
 }

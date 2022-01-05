@@ -1,10 +1,13 @@
 import models.Task;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.Date;
 import java.util.Vector;
 
-/** Simple table model implements functionality outlined by Abstract Table
+/**
+ * Simple table model implements functionality outlined by Abstract Table
  * Model.
+ *
  * @version 1.0
  * @since 1.0
  */
@@ -13,17 +16,17 @@ class SimpleTableModel extends AbstractTableModel {
     /*
      * table column names.
      */
-    private String[] m_colNames = {"name", "date", "completed"};
+    private final String[] m_colNames = {"name", "date", "completed"};
 
     /*
      * types of data contained in columns.
      */
-    private Class[] m_colTypes = { String.class, Date.class, Boolean.class };
+    private final Class[] m_colTypes = {String.class, Date.class, Boolean.class};
 
     /*
      * data vector.
      */
-    private Vector m_macDataVector;
+    private final Vector m_macDataVector;
 
     SimpleTableModel(Vector macDataVector) {
         super();

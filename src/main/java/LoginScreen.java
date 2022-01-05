@@ -2,7 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/** Manages UI for log in/sign up functionality.
+/**
+ * Manages UI for log in/sign up functionality.
+ *
  * @version 1.0
  * @since 1.0
  */
@@ -11,7 +13,7 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
     /*
      * tools for logging in and signing up users.
      */
-    private LoginService loginService;
+    private final LoginService loginService;
 
     @Override
     public boolean logIn(String username, String password) {
@@ -24,14 +26,14 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
     }
 
     @Override
-    public void activate(){
+    public void activate() {
         setVisible(true);
     }
 
     /**
      * Transition to TaskList frame and dispose of the current frame.
      */
-    private void transitionToTaskList(){
+    private void transitionToTaskList() {
         TaskListServiceInjector taskListServiceInjector =
                 new TaskListServiceInjectorImpl();
         dispose();
@@ -41,15 +43,15 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
     LoginScreen(LoginService loginService) {
         super("Login");
         this.loginService = loginService;
-        this.setBounds(100,100,800,300);
+        this.setBounds(100, 100, 800, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = this.getContentPane();
-        container.setLayout(new GridLayout(3,2,2,2));
+        container.setLayout(new GridLayout(3, 2, 2, 2));
 
-        final JTextField usernameInput = new JTextField("Type your username here",
+        final JTextField usernameInput = new JTextField("admin",
                 5);
-        final JTextField passwordInput = new JTextField("Type your password here",
+        final JTextField passwordInput = new JTextField("password123",
                 5);
         JLabel usernameText = new JLabel("Username:");
         JLabel passwordText = new JLabel("Password:");
@@ -64,17 +66,18 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
 
     /**
      * Add listeners to log in button.
+     *
      * @param usernameInput text input field.
      * @param passwordInput text input field.
      */
     private void setupLogInButton(final JTextField usernameInput, final
-    JTextField passwordInput){
+    JTextField passwordInput) {
         JButton loginButton = new JButton("Sign in");
 
-        loginButton.addActionListener(new ActionListener(){
+        loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                if(logIn(usernameInput.getText(),
+                if (logIn(usernameInput.getText(),
                         passwordInput.getText())) {
 
                     transitionToTaskList();
@@ -89,14 +92,15 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
 
     /**
      * Add listeners to sign up button.
+     *
      * @param usernameInput text input field.
      * @param passwordInput text input field.
      */
     private void setupSignUpButton(final JTextField usernameInput, final
-    JTextField passwordInput){
+    JTextField passwordInput) {
         JButton registerButton = new JButton("Sign up");
 
-        registerButton.addActionListener(new ActionListener(){
+        registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 signUp(usernameInput.getText(),
                         passwordInput.getText());
@@ -104,5 +108,4 @@ public class LoginScreen extends JFrame implements LoginServiceConsumer {
         });
         getContentPane().add(registerButton);
     }
-
 }

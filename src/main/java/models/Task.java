@@ -3,13 +3,15 @@ package models;
 import javax.persistence.*;
 import java.util.Date;
 
-/** Task represents an activity planned by user. Contains task name,
+/**
+ * Task represents an activity planned by user. Contains task name,
  * date and completion status of the task.
+ *
  * @version 1.0
  * @since 1.0
  */
 @Entity
-@Table(name = "tasks", schema="public")
+@Table(name = "tasks", schema = "public")
 public class Task {
 
     @Id
@@ -33,7 +35,7 @@ public class Task {
      */
     private Date date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_name")
     /*
      * current owner of the task.
@@ -48,9 +50,10 @@ public class Task {
 
     /**
      * Return whether task is completed.
+     *
      * @return whether task is completed.
      */
-    public boolean getCompleted(){
+    public boolean getCompleted() {
         return completed;
     }
 
@@ -58,7 +61,7 @@ public class Task {
      * Set whether task is completed.
      * @param completed new value that indicates whether task is completed.
      */
-    public void setCompleted(boolean completed){
+    public void setCompleted(boolean completed) {
         this.completed = completed;
     }
 
@@ -74,6 +77,7 @@ public class Task {
 
     /**
      * Return task's id.
+     *
      * @return tasks's id.
      */
     public int getId() {
@@ -82,33 +86,37 @@ public class Task {
 
     /**
      * Return task's name.
+     *
      * @return tasks's name.
      */
-    public String getName(){
+    public String getName() {
         return name;
     }
 
     /**
      * Return task's date.
+     *
      * @return tasks's date.
      */
-    public Date getDate(){
+    public Date getDate() {
         return date;
     }
 
     /**
      * Set task's name.
+     *
      * @param name new task's name.
      */
-    void setName(String name){
+    void setName(String name) {
         this.name = name;
     }
 
     /**
      * Set task's date.
+     *
      * @param date task's date.
      */
-    void setDate(Date date){
+    void setDate(Date date) {
         this.date = date;
     }
 
@@ -118,6 +126,7 @@ public class Task {
 
     /**
      * Set task's user.
+     *
      * @param user new user for the task.
      */
     public void setUser(User user) {
