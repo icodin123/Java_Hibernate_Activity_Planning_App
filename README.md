@@ -1,4 +1,4 @@
-# Hibernate Activity Planning App
+# DailyPlanner: Multi-user activity planning application.
 
 ## Requirements:
 
